@@ -59,14 +59,8 @@
 			});
 		}, false);
 
-// Converts canvas to an image
-function convertCanvasToImage(canvas, callback) {
-  var image = new Image();
-  image.onload = function(){
-    callback(image);
-  }
-  image.src = canvas.toDataURL("image/png");
-}
+	var canvas = document.getElementById("canvas");
+	var data = canvas.toDataURL("image/jpeg");
 	</script>
 
 
