@@ -13,6 +13,12 @@
 	<button id="snap" class="sexyButton">Snap Photo</button>
 	<canvas id="canvas" width="640" height="480"></canvas>
 
+<form method="post" action="" onsubmit="prepareImg();">
+  <input id="inp_img" name="img" type="hidden" value="">
+  <input id="bt_upload" type="submit" value="Upload">
+</form>
+
+
 	<script>
 
 		// Put event listeners into place
@@ -59,25 +65,11 @@
 			});
 		}, false);
 
+function prepareImg() {
+   var canvas = document.getElementById('canvas');
+   document.getElementById('inp_img').value = canvas.toDataURL();
+}
 	</script>
-<button id="bt_upload">Upload</button>
- 
-<script>
-  $(document).ready(function() {    
-                                
-    $("#bt_upload").click(function() {
-      var canvas = document.getElementById('canvas');
-      var dataURL = canvas.toDataURL();
-      $.ajax({
-         type: "POST", 
-         url: "upload_data.php", 
-         data: { img: dataURL }      
-      }).done(function(msg){ 
-         alert(msg); 
-      });
-    });
-                                
-  });   
-   
-</script>
+
+
 </body></html>
