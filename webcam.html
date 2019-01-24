@@ -13,12 +13,6 @@
 	<button id="snap" class="sexyButton">Snap Photo</button>
 	<canvas id="canvas" width="640" height="480"></canvas>
 
-<form method="post" action="" onsubmit="prepareImg();">
-  <input id="inp_img" name="img" type="hidden" value="">
-  <input id="bt_upload" type="submit" value="Upload">
-</form>
-
-
 	<script>
 
 		// Put event listeners into place
@@ -65,9 +59,13 @@
 			});
 		}, false);
 
-function prepareImg() {
-   var canvas = document.getElementById('canvas');
-   document.getElementById('inp_img').value = canvas.toDataURL();
+// Converts canvas to an image
+function convertCanvasToImage(canvas, callback) {
+  var image = new Image();
+  image.onload = function(){
+    callback(image);
+  }
+  image.src = canvas.toDataURL("image/png");
 }
 	</script>
 
