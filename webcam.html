@@ -61,6 +61,10 @@
 
 	var canvas = document.getElementById("canvas");
 	var data = canvas.toDataURL("image/jpeg");
+	  // ctx is the plotting canvas' context
+  // w is the width of the canvas
+  ctx.translate(w, 0);
+  ctx.scale(-1, 1);
 	</script>
 
 
