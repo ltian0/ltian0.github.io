@@ -63,26 +63,14 @@
 <button id="bt_upload">Upload</button>
  
 <script>
-<script>
-   
-  var canvas = document.getElementById('canvas');
-  var context = canvas.getContext('2d');
- 
-  context.arc(100, 100, 50, 0, 2 * Math.PI);
-  context.lineWidth = 5;
-  context.fillStyle = '#EE1111';
-  context.fill();   
-  context.strokeStyle = '#CC0000';
-  context.stroke();
-     
   $(document).ready(function() {    
                                 
     $("#bt_upload").click(function() {
-      var canvas = document.getElementById('canv');
+      var canvas = document.getElementById('canvas');
       var dataURL = canvas.toDataURL();
       $.ajax({
          type: "POST", 
-         url: "canvas_ajax_upload_post.php", 
+         url: "upload_data.php", 
          data: { img: dataURL }      
       }).done(function(msg){ 
          alert(msg); 
